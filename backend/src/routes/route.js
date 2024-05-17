@@ -111,13 +111,28 @@ router.get("/count", (req, res) => {
 });
 
 // Get organization with departments and employees
-router.get("/:id", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    const organization = await Organization.findById(req.params.id).populate({
+    const organization = await Organization.find().populate({
       path: "departments",
       populate: { path: "employees" },
     });
     res.status(200).json(organization);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+router.get("/:orgId/:deptId/employees", async (req, res) => {
+  try {
+    const { deptId } = req.params;
+    const department = await Department.findById(deptId).populate("employees");
+
+    if (!department) {
+      return res.status(404).json({ message: "Department not found" });
+    }
+
+    res.status(200).json(department.employees);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
