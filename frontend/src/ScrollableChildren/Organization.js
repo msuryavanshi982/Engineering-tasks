@@ -10,7 +10,7 @@ function Organization({ organizations, setSelectedOrganization, setOrganizations
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/organization/add",
+        "http://13.234.254.110:5000/api/organization/add",
         { name: orgName }
       );
       setSelectedOrganization(response.data);

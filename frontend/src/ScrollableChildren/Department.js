@@ -7,7 +7,7 @@ function Department({ organizationId, departments, setDepartments, setSelectedDe
   const handleCreateDepartment = async () => {
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/organization/${organizationId}/add-department`,
+        `http://13.234.254.110:5000/api/organization/${organizationId}/add-department`,
         {
           name: newDepartmentName
         }

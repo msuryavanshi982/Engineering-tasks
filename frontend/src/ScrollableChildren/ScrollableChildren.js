@@ -17,7 +17,7 @@ function ScrollableChildren() {
     async function fetchData() {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/organization"
+          "http://13.234.254.110:5000/api/organization"
         );
         setOrganizations(response.data);
       } catch (error) {
@@ -41,17 +41,17 @@ function ScrollableChildren() {
     try {
       if (modalData.type === 'organization') {
         await axios.put(
-          `http://localhost:5000/api/organization/update/${modalData.data._id}`,
+          `http://13.234.254.110:5000/api/organization/update/${modalData.data._id}`,
           { name: modalData.data.name }
         );
       } else if (modalData.type === 'department') {
         await axios.put(
-          `http://localhost:5000/api/organization/${selectedOrganization._id}/update-department/${modalData.data._id}`,
+          `http://13.234.254.110:5000/api/organization/${selectedOrganization._id}/update-department/${modalData.data._id}`,
           { name: modalData.data.name }
         );
       } else if (modalData.type === 'employee') {
         await axios.put(
-          `http://localhost:5000/api/organization/${selectedOrganization._id}/${selectedDepartment._id}/update-employee/${modalData.data._id}`,
+          `http://13.234.254.110:5000/api/organization/${selectedOrganization._id}/${selectedDepartment._id}/update-employee/${modalData.data._id}`,
           { name: modalData.data.name, position: modalData.data.position }
         );
       }

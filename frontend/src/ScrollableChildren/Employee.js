@@ -19,7 +19,7 @@ function Employee({ organizationId, selectedDepartment, handleUpdateClick }) {
     try {
       if (selectedDepartment) {
         const response = await axios.get(
-          `http://localhost:5000/api/organization/${organizationId}/${selectedDepartment._id}/employees`
+          `http://13.234.254.110:5000/api/organization/${organizationId}/${selectedDepartment._id}/employees`
         );
         setEmployees(response.data);
       }
@@ -31,7 +31,7 @@ function Employee({ organizationId, selectedDepartment, handleUpdateClick }) {
   const handleAddEmployee = async () => {
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/organization/${organizationId}/${selectedDepartment._id}/add-employee`,
+        `http://13.234.254.110:5000/api/organization/${organizationId}/${selectedDepartment._id}/add-employee`,
         {
           name: newEmployeeName,
           position: newEmployeePosition
