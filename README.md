@@ -19,3 +19,7 @@ Task 2:- Create APIs for the frontend part you have created in
  update the data. (it will update entry in table)
  ● Count: API to show number of times (count), user has
  called add and update API.
+
+
+FE = npm start
+BE = npm start
